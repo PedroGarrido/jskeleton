@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Getting started · Jskeleton</title>
+  <title>Extensions · Jskeleton</title>
   <meta name="description" content="Jskeleton is an awesome javascript framework to build large scale applications..">
 
   <!-- Links -->
-  <link rel="canonical" href="https://jskeleton.io/getting-started/">
+  <link rel="canonical" href="https://jskeleton.io/extensions/">
   <link rel="alternate" type="application/rss+xml" title="Jskeleton" href="https://jskeleton.io/feed.xml" />
 
   <!-- Icons -->
@@ -61,14 +61,6 @@
 
                 
                 <li class="nav__menu__item"><a
-                        class="header__nav__link header__nav__link--active"
-                        href="/getting-started/">Getting started</a></li>
-                
-
-                
-
-                
-                <li class="nav__menu__item"><a
                         class="header__nav__link "
                         href="/guide/">Guide</a></li>
                 
@@ -79,6 +71,14 @@
                 <li class="nav__menu__item"><a
                         class="header__nav__link "
                         href="/api-reference/">Api reference</a></li>
+                
+
+                
+
+                
+                <li class="nav__menu__item"><a
+                        class="header__nav__link header__nav__link--active"
+                        href="/extensions/">Extensions</a></li>
                 
 
                 
@@ -113,195 +113,11 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Getting started</h1>
+    <h1 class="post-title">Extensions</h1>
   </header>
 
   <article class="post-content">
-    <p>After downloading <a href="https://github.com/bq/penguin">penguin</a>, follow these simple steps to get started:</p>
-
-<h2 id="customize-with-sass">Customize with Sass</h2>
-
-<p>If you choose this way then you should build using a Task Runner. Penguin uses Grunt for compile our code.</p>
-
-<p>First of all, you should install <a href="https://nodejs.org/download/">Node</a> and <a href="http://gruntjs.com/getting-started">Grunt</a>.
-If you want to build the project locally, you have to run the <a href="http://gruntjs.com/">Grunt</a> task <code>grunt build</code>. This task will concat and minify the sources and create the README.md. Before all this, you do not forget to run <code>npm install</code> and <code>bower install</code>.</p>
-
-<h2 id="compiled-and-minified-css-and-javascript">Compiled and minified CSS and JavaScript.</h2>
-
-<p>You should add to project stylesheet and link it in the header of your HTML file, like so:</p>
-
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- This is how you would link your penguin stylesheet --&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;dist/css/penguin.min.css&quot;</span><span class="nt">&gt;</span></code></pre></div>
-
-<p>If you are using any Penguin JavaScript components, this needs to be loaded on the page. You do not forget add jQuery to project, Penguin components require jQuery to be included. We recommend at the end before your closing &lt;body&gt; tags like so:</p>
-
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;bower_components/jquery/dist/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;dist/js/penguin.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script&gt;</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">modal</span><span class="p">();</span>
-<span class="nt">&lt;/script&gt;</span></code></pre></div>
-
-<p>Also you can load only the components you need for your project:</p>
-
-<div class="highlight"><pre><code class="language-html" data-lang="html">...
-        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-        <span class="c">&lt;!-- Alerts --&gt;</span>
-        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;penguin/js/components/alert.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-        <span class="c">&lt;!-- Dropdowns --&gt;</span>
-        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;penguin/js/components/dropdown.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-        <span class="c">&lt;!-- Modal --&gt;</span>
-        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;penguin/js/components/modal.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-        <span class="c">&lt;!-- Spinner --&gt;</span>
-        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;penguin/js/components/spinner.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/body&gt;</span></code></pre></div>
-
-<p>To minimize the compiled style, we can disable the doesn’t used components in /components/_variables.css </p>
-
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$styles-alert</span><span class="o">                        :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-banner</span><span class="o">                       :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-breadcrumb</span><span class="o">                   :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-button</span><span class="o">                       :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-dropdown</span><span class="o">                     :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-form</span><span class="o">                         :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-icon</span><span class="o">                         :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-modal</span><span class="o">                        :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-navigation</span><span class="o">                   :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-paginator</span><span class="o">                    :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-panel</span><span class="o">                        :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-spinner</span><span class="o">                      :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-tab</span><span class="o">                          :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-table</span><span class="o">                        :</span> <span class="n-Pseudo">true</span><span class="p">;</span>
-<span class="nv">$styles-text</span><span class="o">                         :</span> <span class="n-Pseudo">true</span><span class="p">;</span></code></pre></div>
-
-<blockquote>
-  <p>Working with <a href="http://requirejs.org">RequireJS</a>:</p>
-</blockquote>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="s1">&#39;use strict&#39;</span>
-
-    <span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
-        <span class="nx">paths</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s1">&#39;penguin&#39;</span><span class="o">:</span> <span class="s1">&#39;path-to-penguin/penguin/lib/penguin.js&#39;</span>
-        <span class="p">}</span>      
-    <span class="p">});</span></code></pre></div>
-
-<p>You can also add a single JavaSript component:</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="s1">&#39;use strict&#39;</span>
-
-    <span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
-        <span class="nx">paths</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s1">&#39;penguin.modal&#39;</span><span class="o">:</span> <span class="s1">&#39;path-to-penguin/penguin/src/js/modal.js&#39;</span>
-        <span class="p">}</span>      
-    <span class="p">});</span></code></pre></div>
-
-<h2 id="how-to-include-penguin-in-your-project">How to include Penguin in your project</h2>
-
-<p>Quick example of how to import penguin to your project, overriding it and adding your own theme styles. The example file would be your main scss file (<code>main.scss</code>).</p>
-
-<p>Note: </p>
-
-<ul>
-  <li>path_to_penguin: directory where penguin is (for example: app/bower_components/penguin)</li>
-  <li>path_to_theme: directory where your project theme is (for example: app/css)</li>
-</ul>
-
-<blockquote>
-  <p>main.scss</p>
-</blockquote>
-
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Base: Variables</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/base/_variables&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/base/_variables&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Variables</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_variables&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_variables&quot;</span><span class="p">;</span>
-
-<span class="c1">// Base: Scaffolding (optional)</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/base/_scaffolding&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/base/_scaffolding&quot;</span><span class="p">;</span>
-
-<span class="c1">// Base: Mixins</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/base/_mixins&quot;</span><span class="p">;</span>
-
-<span class="c1">// Base: Reset</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/base/_reset&quot;</span><span class="p">;</span>
-
-<span class="c1">// Base: Print</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/base/_print&quot;</span><span class="p">;</span>
-
-<span class="c1">// Base: Utils</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/base/_utils&quot;</span><span class="p">;</span>
-
-<span class="c1">// Base: Responsive utilities</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/base/_responsive&quot;</span><span class="p">;</span>
-
-<span class="c1">// Base: Grid system</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/base/_grid&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Animations</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/base/_animations&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Alert</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/alert&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/alert&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Text</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/text&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/text&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Dropdown</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_dropdown&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_dropdown&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Button</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_button&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_button&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Navigation</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_navigation&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_navigation&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Tab</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_tab&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_tab&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Breadcumb</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_breadcrumb&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_breadcrumb&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Table</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_table&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_table&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Form</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_form&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_form&quot;</span><span class="p">;</span>
-
-<span class="c1">// UI Components: Icon</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_icon&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_icon&quot;</span><span class="p">;</span>
-
-<span class="c1">// UI Components: Modal</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_modal&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_modal&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Banner</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_banner&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_banner&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Spinner</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_spinner&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_spinner&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Paginator</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_paginator&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_paginator&quot;</span><span class="p">;</span>
-
-<span class="c1">// Components: Panel</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_penguin/components/_panel&quot;</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s2">&quot;path_to_theme/components/_panel&quot;</span><span class="p">;</span></code></pre></div>
+    
 
   </article>
 
