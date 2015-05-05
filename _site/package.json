@@ -6,16 +6,10 @@
         "type": "git",
         "url": "git@github.com:bq/jskeleton.git"
     },
-    "ignore": [
-        ".gitignore",
-        ".sass-cache",
-        ".travis.yml",
-        ".editorconfig",
-        "node_modules",
-        "bower_components"
-    ],
-    "license": "MIT",
-    "homepage": "https://jskeleton.docs.bqws.io",
+    "scripts": {
+        "build": "grunt build",
+        "test": "grunt test"
+    },
     "authors": [
         "front-end bq <front-end@bq.com>",
         "Daniel García <daniel.garcia@bq.com> <danielon28@gmail.com>",
@@ -26,18 +20,19 @@
         "Óscar Ferrándiz <oscar.ferrandiz@bq.com> <oferrandiz@gmail.com>"
     ],
     "dependencies": {
-        "jskeleton": "git@github.com:bq/jskeleton.git",
-        "penguin": "*",
-        "penguin-themes": "*"
+        "jskeleton": "git@github.com:bq/jskeleton.git"
     },
-    "keywords": [
-        "jskeleton",
-        "jquery",
-        "javascript",
-        "framework",
-        "spa",
-        "html5",
-        "marionette",
-        "backbone"
-    ]
+    "devDependencies": {
+        "grunt-bump": "^0.3.0",
+        "grunt-contrib-clean": "^0.6.0",
+        "grunt-contrib-concat": "^0.5.0",
+        "grunt-contrib-copy": "^0.8.0",
+        "grunt-contrib-cssmin": "^0.12.2",
+        "grunt-contrib-sass": "^0.9.2",
+        "grunt-contrib-uglify": "^0.7.0",
+        "grunt-conventional-changelog": "^1.1.0",
+        "grunt-mocha-cli": "^1.12.0",
+        "grunt-readme-generator": "^0.3.41",
+        "load-grunt-tasks": "^3.1.0"
+    }
 }
