@@ -3,8 +3,15 @@ layout: api
 title:  "Application"
 ---
 
- Application class is a 'container' where to store your webapp logic and split it into small 'pieces' and 'components'.
- 
+ `JSkeleton.Application` es un contenedor donde almacenar y dividir en pequeñas partes la lógica de tu aplicación web, haciendola más rehusable, más desacoplada y más escalable.
+
+*   [Application DOM](#application-dom)
+    * [Definir el rootEl de una aplicación](#root-el)
+    * [Definir la región principal de una aplicación](#application-main-region)
+*   [Definir regiones de una aplicación](#regions)
+*   [Definir child applications de una aplicación](#child-applications)
+*   [Application channels](#Channels)
+
 ##Application DOM
  
 ###rootEl
@@ -28,7 +35,7 @@ Para definir el root raíz de una aplicación, basta con definirlo en la clase o
 
     {% endhighlight %}
 
-###defaultRootRegion
+###Application main region
 
 Todas las `Jskeleton.Application` tienen una región raíz/principal (por defecto 'root'). Esta región es la que se le pasará a las child applications si no se les especifica ninguna región. Para definir una región principal:
 

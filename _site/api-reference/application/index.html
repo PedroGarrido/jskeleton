@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Application · Jskeleton</title>
+  <title>Application · JSkeleton</title>
   <meta name="description" content="Jskeleton is an awesome javascript framework to build large scale applications..">
 
   <!-- Links -->
   <link rel="canonical" href="https://jskeleton.io/api-reference/application/">
-  <link rel="alternate" type="application/rss+xml" title="Jskeleton" href="https://jskeleton.io/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="JSkeleton" href="https://jskeleton.io/feed.xml" />
 
   <!-- Icons -->
   <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -40,7 +40,7 @@
 
         <h1 class="title col-a-12 col-c-5">
             <a href="/"><span class="title__logo"><img src="/assets/svg/penguin.svg" alt=""/></span>
-                Jskeleton
+                JSkeleton
             </a>
         </h1>
 
@@ -153,7 +153,19 @@
 
   <article class=" api-content col-a-12 col-c-9">
   	<h1>Application</h1>
-    <p>Application class is a ‘container’ where to store your webapp logic and split it into small ‘pieces’ and ‘components’.</p>
+    <p><code>JSkeleton.Application</code> es un contenedor donde almacenar y dividir en pequeñas partes la lógica de tu aplicación web, haciendola más rehusable, más desacoplada y más escalable.</p>
+
+<ul>
+  <li><a href="#application-dom">Application DOM</a>
+    <ul>
+      <li><a href="#root-el">Definir el rootEl de una aplicación</a></li>
+      <li><a href="#application-main-region">Definir la región principal de una aplicación</a></li>
+    </ul>
+  </li>
+  <li><a href="#regions">Definir regiones de una aplicación</a></li>
+  <li><a href="#child-applications">Definir child applications de una aplicación</a></li>
+  <li><a href="#Channels">Application channels</a></li>
+</ul>
 
 <h2 id="application-dom">Application DOM</h2>
 
@@ -173,7 +185,7 @@
 
     <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExampleApp</span><span class="p">({</span><span class="nx">rootEl</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span><span class="p">});</span></code></pre></div>
 
-<h3 id="defaultrootregion">defaultRootRegion</h3>
+<h3 id="application-main-region">Application main region</h3>
 
 <p>Todas las <code>Jskeleton.Application</code> tienen una región raíz/principal (por defecto ‘root’). Esta región es la que se le pasará a las child applications si no se les especifica ninguna región. Para definir una región principal:</p>
 
@@ -364,7 +376,7 @@ default
         <div class="footer__col col-c-4">
 
             <ul class="footer__list">
-                <li>Jskeleton</li>
+                <li>JSkeleton</li>
                 <li><a class="footer__link" href="mailto:front-end@bq.com">front-end@bq.com</a></li>
             </ul>
         </div>

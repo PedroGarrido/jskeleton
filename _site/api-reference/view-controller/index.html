@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>ViewController · Jskeleton</title>
+  <title>ViewController · JSkeleton</title>
   <meta name="description" content="Jskeleton is an awesome javascript framework to build large scale applications..">
 
   <!-- Links -->
   <link rel="canonical" href="https://jskeleton.io/api-reference/view-controller/">
-  <link rel="alternate" type="application/rss+xml" title="Jskeleton" href="https://jskeleton.io/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="JSkeleton" href="https://jskeleton.io/feed.xml" />
 
   <!-- Icons -->
   <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -40,7 +40,7 @@
 
         <h1 class="title col-a-12 col-c-5">
             <a href="/"><span class="title__logo"><img src="/assets/svg/penguin.svg" alt=""/></span>
-                Jskeleton
+                JSkeleton
             </a>
         </h1>
 
@@ -153,8 +153,43 @@
 
   <article class=" api-content col-a-12 col-c-9">
   	<h1>ViewController</h1>
-    <p>The view controller object is an hybrid of View/Controller. It is responsible for render an application
- state, build up the application context and render the application components.</p>
+    <p>El objeto <code>Jskeleton.ViewController</code> nos permite “renderizar” el estado de una aplicación procesando una ruta o un evento de navegación. Es un hibrido entre Vista y controlador. </p>
+
+<p>Se podría definir como un contenedor de “Componentes-UI”, entendiendo como tales cualquier componente javascript que tenga como finalidad encapsular lógica UI y que pueda generar HTML (<code>Jskeleton.ItemView</code> , <code>Jskeleton.CollectionView</code>, <code>Jskeleton.CompositeView</code>, <code>Jskeleton.LayoutView</code>).</p>
+
+<h2 id="viewcontroller-context">ViewController context</h2>
+
+<p>Cuando se procesa un evento o ruta de navegación, un método del view-controller es invocado (para ver más información sobre que método ir a: ); tras la ejecución de dicho método, se renderiza el template asociado al view controller con el contexto del view controller. Por tanto dicho método es ideal para inflar el contexto que el template va a consumir y exponer los modelos y colecciones que los componentes del template vayan a usar.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Jskeleton</span><span class="p">.</span><span class="nx">ViewController</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+        <span class="nx">onBookList</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">routeParams</span><span class="p">,</span> <span class="nx">context</span><span class="p">){</span>
+            <span class="nx">context</span><span class="p">.</span><span class="nx">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">({</span>
+
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">});</span></code></pre></div>
+
+<p>En el template asociado al view controller, tendremos total acceso al contexto creado por el view controller.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div&gt;</span> { { context.model } } <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p>El método podrá devolver una promesa para resolver asincronamente el renderizado… </p>
+
+<h2 id="dependency-injection">Dependency injection</h2>
+
+<h2 id="viewcontroller-components">ViewController components</h2>
+
+<p>A través del template podremos definir componentes ui que el view-controller va a crear al renderizar el template:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div&gt;</span> { { @component name=&quot;menu-bar&quot; model=context.model } } <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p>Para más información sobre componentes ir a: </p>
+
+<h2 id="components-events">Components events</h2>
+
+<h2 id="viewcontroller-template">ViewController template</h2>
+
+<p><code>Jskeleton.ViewController</code> extiende de <code>Marionette.LayoutView</code>, para más información sobre las propiedades y métodos de la clase Marionette.LayoutView referirse a: http://marionettejs.com/docs/v2.4.1/marionette.layoutview.html</p>
 
   </article>
 
@@ -170,7 +205,7 @@ default
         <div class="footer__col col-c-4">
 
             <ul class="footer__list">
-                <li>Jskeleton</li>
+                <li>JSkeleton</li>
                 <li><a class="footer__link" href="mailto:front-end@bq.com">front-end@bq.com</a></li>
             </ul>
         </div>
