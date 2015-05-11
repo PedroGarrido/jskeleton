@@ -1,23 +1,24 @@
 ---
 layout: api
-title:  "Application"
-submenu:
+title: Application
+submenu: 
   - Application.rootEl: "#root-el"
   - Application.rootRegion: "#application-main-region"
   - Application.regions: "#regions"
   - Application.applications: "#child-applications"
   - Application.channels: "#channels"
   - Application.layout: ""
+published: true
 ---
 
- `JSkeleton.Application` es un contenedor donde almacenar y dividir en pequeñas partes la lógica de tu aplicación web, haciendola más rehusable, más desacoplada y más escalable.
+`JSkeleton.Application` es un contenedor donde almacenar y dividir en pequeñas partes la lógica de tu aplicación web, haciendola más rehusable, más desacoplada y más escalable.
 
-*   [Application DOM](#application-dom)
-    * [Definir el rootEl de una aplicación](#root-el)
-    * [Definir la región principal de una aplicación](#application-main-region)
-*   [Definir regiones de una aplicación](#regions)
-*   [Definir child applications de una aplicación](#child-applications)
-*   [Application channels](#Channels)
+- [Application DOM](#application-dom)
+	- [Definir el rootEl de una aplicación](#root-el)
+	- [Definir la región principal de una aplicación](#application-main-region)
+- [Definir regiones de una aplicación](#regions)
+- [Definir child applications de una aplicación](#child-applications)
+- [Application channels](#Channels)
 
 ##Application DOM
 
@@ -247,5 +248,3 @@ Para cada ruta podemos definir el evento de navegación que va a provocar esa ru
     //La aplicación ExampleApp procesaría el vento como si de una ruta se tratase, y actualizaria la ruta del navegador con los parametros obtenidos del evento:
     // 'backbone/route/ejemplo/15'
     {% endhighlight %}
-
-
